@@ -2,21 +2,23 @@
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8" />
-  <script src="assets/js/script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
   <title>Exercice 1</title>
+  <!-- <script src="assets/js/script.js"></script> -->
 </head>
-<body ng-app>
+<body ng-app >
   <form name="myForm">
-    <label>E-mail</label>
-    <input ng-keyup="225" name="email" type="text" placeholder="Email" ng-model="email" required />
-    <pre>myForm.email.$error = {{ myForm.email.$error | json }}</pre>
-    <div ng-messages="myForm.email.$error" style="color:red" role="alert">
-      <div ng-message="!keyup">Votre email n'est pas valide</div>
+    <label>E-mail : </label>
+    <input name="email" type="email" ng-model="email" required />
+    <div ng-show="myForm.email.$error" ng-hide="myForm.email.$valid" style="color: red">
+      Email non valide
     </div>
-    <div ng-messages="myForm.email.$error" style="color:green" role="alert">
-      <div ng-message="keyup">Email valide</div>
+    <div ng-show="myForm.email.$valid" ng-hide="myForm.email.$error" style="color: green">
+      Email valide
     </div>
+  <!--  <div ng-messages="myForm.email.$error" style="color:green" role="alert">
+      <div ng-message="!regex">Email valide</div>
+    </div> -->
   </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
 </body>
 </html>
