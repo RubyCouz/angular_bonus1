@@ -2,27 +2,28 @@
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8" />
+  <link rel="stylesheet" src="assets/css/style.css" />
   <title>Exercice 1</title>
 </head>
-<body ng-app>
-  <form name="myForm" >
-    <label>E-mail : </label>
-    <input name="email" type="email" ng-model="email" required />
-    <div ng-show="myForm.email.$error" ng-hide="myForm.email.$valid" style="color: red">
-      Email invalide
-    </div>
-    <div ng-show="myForm.email.$valid" ng-hide="myForm.email.$error" style="color: green">
-      Email valide
-    </div>
-    {{myForm.mail.$error.$valid}}
-  <!--  <div ng-show="myForm.mail.$error.email" style="color:red" role="alert">
-      <div>Email invalide</div>
-    </div>
-   <div ng-messages="myForm.email.$valid" style="color:green" role="alert">
-      <div ng-message="pattern">Email valide</div>
-    </div>
-  </div> -->
-  </form>
+<body ng-app="validForm" ng-controller="validCtrl">
+  <form name="form">
+  <input id="email" type"text" ng-model="email" name="email" ng-keypress="testMail()" ng-pattern="regex" />
+  <div class="valid" ng-show="resultTestMail"></div>
+  <div class="error" ng-hide="resultTestMail"></div>
+</form>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
+
+
+<!--  <form name="myForm" >
+<label>E-mail : </label>
+<input name="email" type="email" ng-model="email" required />
+<div ng-show="myForm.email.$error" ng-hide="myForm.email.$valid" style="color: red">
+Email invalide
+</div>
+<div ng-show="myForm.email.$valid" ng-hide="myForm.email.$error" style="color: green">
+Email valide
+</div>
+</form> -->
